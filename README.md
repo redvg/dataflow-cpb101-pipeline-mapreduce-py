@@ -8,4 +8,11 @@ and per https://github.com/GoogleCloudPlatform/training-data-analyst/tree/master
 \
 ...
 
-### 
+### pkg_popularity_pipeline_local.py
+for local deploy \
+feed correct path with --input
+\
+### pkg_popularity_pipeline_cloud.py
+for dataflow deploy \
+reads and writes to Cloud Storage bucket \
+note BUCKET_ID & PROJECT_ID vars \

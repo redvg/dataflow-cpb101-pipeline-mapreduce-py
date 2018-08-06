@@ -4,6 +4,11 @@
 import apache_beam as beam
 import argparse
 
+PROJECT_ID = 'udemy-data-engineer-210920'
+BUCKET_ID = 'udemy-data-engineer-210920'
+BUCKET_FOLDER = 'dataflow-pipeline-py'
+
+
 def find_matching_lines(line, keyword):
 
    if line.startswith(keyword):
@@ -58,23 +63,20 @@ def compare_by_value(kv1, kv2):
 
 def run():
 
-   parser = argparse.ArgumentParser(description='Find the most used Java packages')
-
-   parser.add_argument('--output_prefix',
-                       default='/tmp/output',
-                       help='Output prefix')
-
-   parser.add_argument('--input',
-                       default='../javahelp/src/main/java/com/google/cloud/training/dataanalyst/javahelp/',
-                       help='Input files location directory')
-
-   options, pipeline_args = parser.parse_known_args()
+    argv = [
+      '--project={0}'.format(PROJECT_ID),
+      '--job_name=verygoodjob',
+      '--save_main_session',
+      '--staging_location=gs://{0}/{1}/staging/'.format(BUCKET_ID, BUCKET_FOLDER),
+      '--temp_location=gs://{0}/{1}/staging/'.format(BUCKET_ID, BUCKET_FOLDER),
+      '--runner=DataflowRunner'
+      ]
 
    pipeline = beam.Pipeline(argv=pipeline_args)
 
-   input = '{0}*.java'.format(options.input)
+   input = 'gs://{0}/{1}/input/*.java'.format(BUCKET_ID, BUCKET_FOLDER)
 
-   output_prefix = options.output_prefix
+   output_prefix = 'gs://{0}/{1}/output'.format(BUCKET_ID, BUCKET_FOLDER)
 
    keyword = 'import'
 
