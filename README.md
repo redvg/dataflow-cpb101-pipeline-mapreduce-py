@@ -1,4 +1,4 @@
-# dataflow-pipeline-mapreduce-py
+# dataflow-cpb101-pipeline-mapreduce-py
 GCP Dataflow pipeline with mapreduce in python \
 \
 as per https://codelabs.developers.google.com/codelabs/cpb101-mapreduce-dataflow-py \
