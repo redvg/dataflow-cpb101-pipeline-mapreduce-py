@@ -72,7 +72,7 @@ def run():
       '--runner=DataflowRunner'
       ]
 
-   pipeline = beam.Pipeline(argv=pipeline_args)
+   pipeline = beam.Pipeline(argv=argv)
 
    input = 'gs://{0}/{1}/input/*.java'.format(BUCKET_ID, BUCKET_FOLDER)
 
