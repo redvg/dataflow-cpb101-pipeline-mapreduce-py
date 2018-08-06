@@ -63,14 +63,13 @@ def compare_by_value(kv1, kv2):
 
 def run():
 
-    argv = [
+   argv = [
       '--project={0}'.format(PROJECT_ID),
       '--job_name=verygoodjob',
       '--save_main_session',
       '--staging_location=gs://{0}/{1}/staging/'.format(BUCKET_ID, BUCKET_FOLDER),
       '--temp_location=gs://{0}/{1}/staging/'.format(BUCKET_ID, BUCKET_FOLDER),
-      '--runner=DataflowRunner'
-      ]
+      '--runner=DataflowRunner']
 
    pipeline = beam.Pipeline(argv=argv)
 
