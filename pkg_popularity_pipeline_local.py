@@ -80,15 +80,15 @@ def run():
 
    # find most used packages
    (pipeline
-      | 'GetInput' >> beam.io.ReadFromText(input)
+      | 'Source' >> beam.io.ReadFromText(input)
       | 'Imports' >> beam.FlatMap(lambda line: find_matching_lines(line, keyword))
       | 'PackageUsage' >> beam.FlatMap(lambda line: resolve_package_usage(line, keyword))
       | 'TotalPackageUse' >> beam.CombinePerKey(sum)
       | 'Top5PackageUsage' >> beam.transforms.combiners.Top.Of(5, compare_by_value)
-      | 'WriteOutput' >> beam.io.WriteToText(output_prefix)
+      | 'Sink' >> beam.io.WriteToText(output_prefix)
    )
 
-   pipeline.run().wait_until_finish()    
+   pipeline.run().wait_until_finish()
 
 if __name__ == '__main__':
 
