@@ -89,7 +89,7 @@ def run():
       | 'Sink' >> beam.io.WriteToText(output_prefix)
    )
 
-   pipeline.run().wait_until_finish()
+   pipeline.run()
 
 if __name__ == '__main__':
 
