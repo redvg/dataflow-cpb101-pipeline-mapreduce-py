@@ -5,8 +5,9 @@ as per https://codelabs.developers.google.com/codelabs/cpb101-mapreduce-dataflow
 and per https://www.udemy.com/gcp-data-engineer-and-cloud-architect/learn/v4/t/lecture/7598622?start=0 \
 and per https://github.com/GoogleCloudPlatform/training-data-analyst/tree/master/courses/data_analysis/lab2/python \
 \
-\
-...
+
+### prereqs
+`pip install google-cloud-dataflow oauth2client==3.0.0`
 
 ### pkg_popularity_pipeline_local.py
 for local deploy \
